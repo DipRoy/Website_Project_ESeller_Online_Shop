@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block title %} 
+Wish List
+{% endblock title %}
+
+{% block body %}
+
+<div class="container-fluid my-0 px-0 py-0 me-9">
+    <img src="/static/wishlist1.jfif" class="d-block w-100" alt="...">
+
+</div>
+ 
+<div class="container">
+    <h1 class="text-center"> Wish List </h1>
+
+    <form method= "post" action="/about_us">
+        {% csrf_taken %}
+        <select class="form-select" id="category" name="category" aria-label="Product Category">
+            <option selected>Product Category</option>
+            <option value="1"> Cateagory One</option>
+            <option value="2">Category Two</option>
+            <option value="3">Category Three</option>
+          </select>
+    
+    
+          <div class="input-group">
+            <span class="input-group-text">Product Name</span>
+            <textarea class="form-control" aria-label="Product Name" id="name"></textarea>
+          </div>
+          
+          <div class="mb-3">
+            <label for="file" class="file">Product Photo</label>
+            <input class="form-control" type="file" id="file" name="file">
+          </div>
+    
+    
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="description" name="description" style="height: 100px"></textarea>
+            <label for="description">Description</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+    </form> 
+
+</div>
+
+
+  {% endblock body %} 

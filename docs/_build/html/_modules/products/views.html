@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>products.views &#8212; ESeller 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for products.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">products.models</span> <span class="kn">import</span> <span class="n">Product</span>
+
+<span class="c1"># view function for fruit page</span>
+<div class="viewcode-block" id="fruit"><a class="viewcode-back" href="../../products.html#products.views.fruit">[docs]</a><span class="k">def</span> <span class="nf">fruit</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will get products where category is Fruit.</span>
+<span class="sd">    After that it will return the url of fruit html page.</span>
+
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns fruit page</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Fruit&quot;</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Fruit&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="n">product</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;products/fruit.html&#39;</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span></div>
+
+<span class="c1"># view function for vegetable page</span>
+<div class="viewcode-block" id="vegetable"><a class="viewcode-back" href="../../products.html#products.views.vegetable">[docs]</a><span class="k">def</span> <span class="nf">vegetable</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will get products where category is Vegetable.</span>
+<span class="sd">    After that it will return the url of vegetable html page.</span>
+
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns vegetable page</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Vegetable&quot;</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Vegetable&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="n">product</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;products/vegetable.html&#39;</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span></div>
+
+<span class="c1"># view function for fish page</span>
+<div class="viewcode-block" id="fish"><a class="viewcode-back" href="../../products.html#products.views.fish">[docs]</a><span class="k">def</span> <span class="nf">fish</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will get products where category is Fish.</span>
+<span class="sd">    After that it will return the url of fish html page.</span>
+
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns fish page</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Fish&quot;</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Fish&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="n">product</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;products/fish.html&#39;</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span></div>
+
+<span class="c1"># view function for medicine page</span>
+<div class="viewcode-block" id="medicine"><a class="viewcode-back" href="../../products.html#products.views.medicine">[docs]</a><span class="k">def</span> <span class="nf">medicine</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will get products where category is Medicine.</span>
+<span class="sd">    After that it will return the url of medicine html page.</span>
+
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns medicine page</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Medicine&quot;</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Medicine&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="n">product</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;products/medicine.html&#39;</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span></div>
+
+<span class="c1"># view function for meat page</span>
+<div class="viewcode-block" id="meat"><a class="viewcode-back" href="../../products.html#products.views.meat">[docs]</a><span class="k">def</span> <span class="nf">meat</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will get products where category is Meat.</span>
+<span class="sd">    After that it will return the url of meat html page.</span>
+
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns meat page</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Meat&quot;</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Meat&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="n">product</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="s1">&#39;products/meat.html&#39;</span><span class="p">,</span><span class="n">params</span><span class="p">)</span></div>
+
+<span class="c1"># Add Product</span>
+<div class="viewcode-block" id="add_product"><a class="viewcode-back" href="../../products.html#products.views.add_product">[docs]</a><span class="k">def</span> <span class="nf">add_product</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will use to add new products in the shop. It will take</span>
+<span class="sd">    the product name, category, price, photo, description and will store</span>
+<span class="sd">    them in database. Only admin can access this function, if the user is</span>
+<span class="sd">    not admin it will show an error message. Otherwise, it will store the</span>
+<span class="sd">    data into the database and return the url of home page.</span>
+
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns home page</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">product_name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span>
+            <span class="n">product_category</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;product_category&#39;</span><span class="p">]</span>
+            <span class="n">product_price</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;product_price&#39;</span><span class="p">]</span>
+            <span class="n">product_photo</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">[</span><span class="s1">&#39;product_photo&#39;</span><span class="p">]</span>
+            <span class="n">product_description</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;product_description&#39;</span><span class="p">]</span>
+
+            <span class="n">add_product</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="n">product_name</span> <span class="o">=</span> <span class="n">product_name</span><span class="p">,</span> <span class="n">category</span> <span class="o">=</span> <span class="n">product_category</span><span class="p">,</span> <span class="n">price</span> <span class="o">=</span> <span class="n">product_price</span><span class="p">,</span>
+                                  <span class="n">description</span> <span class="o">=</span> <span class="n">product_description</span><span class="p">,</span> <span class="n">pub_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">(),</span> <span class="n">image</span> <span class="o">=</span> <span class="n">product_photo</span><span class="p">)</span>
+            <span class="n">add_product</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Product has been added successfully!!!&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;home/home.html&#39;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;404-Not Found&quot;</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;html_view_with_error&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span> <span class="p">:</span> <span class="s2">&quot;PERMISSION DENIED&quot;</span><span class="p">})</span></div>
+
+<span class="c1"># For Updating Product</span>
+<div class="viewcode-block" id="update_product"><a class="viewcode-back" href="../../products.html#products.views.update_product">[docs]</a><span class="k">def</span> <span class="nf">update_product</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">product_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will use to update or edit products in the shop. It will find the</span>
+<span class="sd">    specific product with product id which is the primary key of the product.</span>
+<span class="sd">    Only admin can access this function, if the user is not admin it will show an</span>
+<span class="sd">    error message. Otherwise, it will update the data into the database and return</span>
+<span class="sd">    the url of home page.</span>
+
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :param name: product_id - used to find the specific product for update</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns home page</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">product_id</span><span class="p">)</span>
+            <span class="n">product</span><span class="o">.</span><span class="n">product_name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span>
+            <span class="n">product</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;product_category&#39;</span><span class="p">]</span>
+            <span class="n">product</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;product_price&#39;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="s1">&#39;product_photo&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">product</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+                <span class="n">product</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">[</span><span class="s1">&#39;product_photo&#39;</span><span class="p">]</span>
+
+            <span class="n">product</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;product_description&#39;</span><span class="p">]</span>
+            <span class="n">product</span><span class="o">.</span><span class="n">pub_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+            <span class="n">product</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Product has been updated successfully!!!&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;404-Not Found&quot;</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;html_view_with_error&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span> <span class="p">:</span> <span class="s2">&quot;PERMISSION DENIED&quot;</span><span class="p">})</span></div>
+
+<span class="c1"># For Deleting Product</span>
+<div class="viewcode-block" id="delete_product"><a class="viewcode-back" href="../../products.html#products.views.delete_product">[docs]</a><span class="k">def</span> <span class="nf">delete_product</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">product_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will use to delete products in the shop. It will find the</span>
+<span class="sd">    specific product with product id which is the primary key of the product,</span>
+<span class="sd">    and delete that specific product. Only admin can access this function,</span>
+<span class="sd">    if the user is not admin it will show an error message. Otherwise, it</span>
+<span class="sd">    will delete the data from the database and return the url of home page.</span>
+
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :param name: product_id - used to find the specific product for update</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns home page</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+        <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">product_id</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">product</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">product</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Product has been deleted successfully!!!&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;html_view_with_error&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span> <span class="p">:</span> <span class="s2">&quot;PERMISSION DENIED&quot;</span><span class="p">})</span></div>
+
+
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">ESeller</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Sunjare, Dip, Ankur, Ashraful, Fahid.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

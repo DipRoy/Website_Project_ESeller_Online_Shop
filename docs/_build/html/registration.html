@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>registration package &#8212; ESeller 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="registration-package">
+<h1>registration package<a class="headerlink" href="#registration-package" title="Permalink to this headline">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="registration.migrations.html">registration.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="registration.migrations.html#module-registration.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-registration.admin">
+<span id="registration-admin-module"></span><h2>registration.admin module<a class="headerlink" href="#module-registration.admin" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-registration.apps">
+<span id="registration-apps-module"></span><h2>registration.apps module<a class="headerlink" href="#module-registration.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="registration.apps.RegistrationConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">registration.apps.</span></span><span class="sig-name descname"><span class="pre">RegistrationConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/registration/apps.html#RegistrationConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#registration.apps.RegistrationConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="registration.apps.RegistrationConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#registration.apps.RegistrationConfig.default_auto_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="registration.apps.RegistrationConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'registration'</span></em><a class="headerlink" href="#registration.apps.RegistrationConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-registration.models">
+<span id="registration-models-module"></span><h2>registration.models module<a class="headerlink" href="#module-registration.models" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-registration.tests">
+<span id="registration-tests-module"></span><h2>registration.tests module<a class="headerlink" href="#module-registration.tests" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-registration.urls">
+<span id="registration-urls-module"></span><h2>registration.urls module<a class="headerlink" href="#module-registration.urls" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-registration.views">
+<span id="registration-views-module"></span><h2>registration.views module<a class="headerlink" href="#module-registration.views" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="registration.views.handleLogin">
+<span class="sig-prename descclassname"><span class="pre">registration.views.</span></span><span class="sig-name descname"><span class="pre">handleLogin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/registration/views.html#handleLogin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#registration.views.handleLogin" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will access those who signed up before .we have to provide username and password for login.
+The site can not be entered if the username or password is incorrect.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns home page</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns httpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="registration.views.handleLogout">
+<span class="sig-prename descclassname"><span class="pre">registration.views.</span></span><span class="sig-name descname"><span class="pre">handleLogout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/registration/views.html#handleLogout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#registration.views.handleLogout" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is for user logout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns login page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="registration.views.handleSignup">
+<span class="sig-prename descclassname"><span class="pre">registration.views.</span></span><span class="sig-name descname"><span class="pre">handleSignup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/registration/views.html#handleSignup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#registration.views.handleSignup" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is for user signup.This method will register new customers. 
+User will get values from form and it will check if username or email is already registerted or not.
+Then it will create a user object and save it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns home page</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-registration">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-registration" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">ESeller</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Sunjare, Dip, Ankur, Ashraful, Fahid.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/registration.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

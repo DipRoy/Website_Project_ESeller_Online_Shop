@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>products.tests.test_views &#8212; ESeller 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for products.tests.test_views</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span>  <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">products.models</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="TestViews"><a class="viewcode-back" href="../../../products.tests.html#products.tests.test_views.TestViews">[docs]</a><span class="k">class</span> <span class="nc">TestViews</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="TestViews.test_fruit_GET"><a class="viewcode-back" href="../../../products.tests.html#products.tests.test_views.TestViews.test_fruit_GET">[docs]</a>    <span class="k">def</span> <span class="nf">test_fruit_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;products:fruit&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unit testing 10: Unit testing for fruit view passed&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TestViews.test_vegetable_GET"><a class="viewcode-back" href="../../../products.tests.html#products.tests.test_views.TestViews.test_vegetable_GET">[docs]</a>    <span class="k">def</span> <span class="nf">test_vegetable_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;products:vegetable&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unit testing 11: Unit testing for fruit view passed&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TestViews.test_fish_GET"><a class="viewcode-back" href="../../../products.tests.html#products.tests.test_views.TestViews.test_fish_GET">[docs]</a>    <span class="k">def</span> <span class="nf">test_fish_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;products:fish&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unit testing 12: Unit testing for fish view passed&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TestViews.test_medicine_GET"><a class="viewcode-back" href="../../../products.tests.html#products.tests.test_views.TestViews.test_medicine_GET">[docs]</a>    <span class="k">def</span> <span class="nf">test_medicine_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;products:medicine&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unit testing 13: Unit testing for medicine view passed&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TestViews.test_meat_GET"><a class="viewcode-back" href="../../../products.tests.html#products.tests.test_views.TestViews.test_meat_GET">[docs]</a>    <span class="k">def</span> <span class="nf">test_meat_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;products:meat&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unit testing 14: Unit testing for meat view passed&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TestViews.test_add_product"><a class="viewcode-back" href="../../../products.tests.html#products.tests.test_views.TestViews.test_add_product">[docs]</a>    <span class="k">def</span> <span class="nf">test_add_product</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;mypassword&#39;</span>
+        <span class="n">my_admin</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_superuser</span><span class="p">(</span><span class="s1">&#39;SUNJARE&#39;</span><span class="p">,</span> <span class="s1">&#39;myemail@test.com&#39;</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">my_admin</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+
+        <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">product_id</span><span class="o">=</span><span class="mi">199</span><span class="p">,</span>
+            <span class="n">product_name</span><span class="o">=</span><span class="s2">&quot;Mango&quot;</span><span class="p">,</span>
+            <span class="n">category</span><span class="o">=</span><span class="s2">&quot;Fruit&quot;</span><span class="p">,</span>
+            <span class="n">price</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fresh Mangoes&quot;</span><span class="p">,</span>
+            <span class="n">pub_date</span><span class="o">=</span><span class="s2">&quot;2022-02-18&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;products:add_product&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">product</span><span class="p">),</span> <span class="s2">&quot;Mango&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unit testing 15: Unit testing for add_product view passed&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TestViews.test_update_product"><a class="viewcode-back" href="../../../products.tests.html#products.tests.test_views.TestViews.test_update_product">[docs]</a>    <span class="k">def</span> <span class="nf">test_update_product</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;mypassword&#39;</span>
+        <span class="n">my_admin</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_superuser</span><span class="p">(</span><span class="s1">&#39;SUNJARE&#39;</span><span class="p">,</span> <span class="s1">&#39;myemail@test.com&#39;</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">my_admin</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+
+        <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">product_id</span><span class="o">=</span><span class="mi">29</span><span class="p">,</span>
+            <span class="n">product_name</span><span class="o">=</span><span class="s2">&quot;Mango&quot;</span><span class="p">,</span>
+            <span class="n">category</span><span class="o">=</span><span class="s2">&quot;Fruit&quot;</span><span class="p">,</span>
+            <span class="n">price</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fresh Mangoes&quot;</span><span class="p">,</span>
+            <span class="n">pub_date</span><span class="o">=</span><span class="s2">&quot;2022-02-18&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">29</span><span class="p">)</span>
+        <span class="n">product</span><span class="o">.</span><span class="n">product_name</span> <span class="o">=</span> <span class="s2">&quot;Strawberry&quot;</span>
+
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;products:update_product&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">product</span><span class="p">),</span> <span class="s2">&quot;Strawberry&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unit testing 16: Unit testing for update_product view passed&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TestViews.test_delete_product"><a class="viewcode-back" href="../../../products.tests.html#products.tests.test_views.TestViews.test_delete_product">[docs]</a>    <span class="k">def</span> <span class="nf">test_delete_product</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">product_id</span><span class="o">=</span><span class="mi">305</span><span class="p">,</span>
+            <span class="n">product_name</span><span class="o">=</span><span class="s2">&quot;Mango&quot;</span><span class="p">,</span>
+            <span class="n">category</span><span class="o">=</span><span class="s2">&quot;Fruit&quot;</span><span class="p">,</span>
+            <span class="n">price</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fresh Mangoes&quot;</span><span class="p">,</span>
+            <span class="n">pub_date</span><span class="o">=</span><span class="s2">&quot;2022-02-18&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">305</span><span class="p">)</span>
+        <span class="n">product</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;products:delete_product&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;Fruit&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unit testing 17: Unit testing for delete_product view passed&quot;</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">ESeller</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Sunjare, Dip, Ankur, Ashraful, Fahid.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
